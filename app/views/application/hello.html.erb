@@ -1,0 +1,9 @@
+<% if session[:username].present? %>
+  <h1>Hi, <%= session[:username] %>.</h1  >
+  <%= link_to 'Posts', posts_path %>
+  <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do   %>
+    <input type=submit value='log  out'>
+  <% end %>
+<% else %>
+  <%= link_to 'Login', login_path %>
+<% end %>
