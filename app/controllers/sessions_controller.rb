@@ -5,21 +5,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:name].present?
-      session[:name] = params[:name]
-      redirect_to root_path
-    else
-      redirect_to login_path
-    end
+    @user = User.find_by(username: params[:user][:username])
+    # byebug
+    return head(:forbidden) unless @user.authenticate(params[:user][:password])
+    session[:user_id] = @user.id
+    redirect_to posts_path
   end
 
   def destroy
-    session.delete :name
+    session.delete :username
     redirect_to root_path
   end
 
   def logged_in?
-    session[:name].nil?
+    session[:username].nil?
   end
 
 end

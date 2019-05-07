@@ -8,8 +8,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params)
-    @user.save
+    @user = User.create!(user_params)
+    # @user.save
+    # @user = User.find(username: params[:user][:username])
     redirect_to user_path(@user)
   end
 
@@ -22,6 +23,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    User.find(params[:id]).destroy
+    redirect_to root_path
+  end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 end
