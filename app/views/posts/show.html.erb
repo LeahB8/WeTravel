@@ -6,7 +6,7 @@
 <p>Destination: <%= link_to @post.destination.location, @post.destination %></p>
 <p>Likes: <%= @post.likes %><br>
 
-<%= link_to "Like", increase_likes_path(@post) %><br><br>
+<%= link_to "Like", increase_likes_path(@post) %><br>
 
 <% if (logged_in? && (current_user.id == @post.user_id)) %>
   <%= link_to "Edit Post", edit_post_path(@post) %>
