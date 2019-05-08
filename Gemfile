@@ -64,3 +64,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'bcrypt'
+
+
+gem 'city-state'
+
+gem 'bootstrap'
+
+gem 'jquery-rails'
+gem 'sprockets-rails'
