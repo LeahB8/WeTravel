@@ -1,9 +1,2 @@
-
-<%= form_for @post do |f| %>
-<%= f.label :title %><br>
-<%= f.text_field :title %><br>
-<%= f.label :content %><br>
-<%= f.text_area :content %><br>
-<%= f.collection_select :destination_id, Destination.all, :id, :location %><br>
-<%= f.submit %>
-<% end %>
+<h3>Create Post</h3>
+<%= render 'form' %>

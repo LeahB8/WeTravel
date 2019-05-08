@@ -7,8 +7,14 @@ Rails.application.routes.draw do
   resources :tags, only: [:new, :create]
 
   root 'application#hello'
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+
+  get '/hello' => 'application#hello'
+  post '/hello' => 'application#hello'
+
+
   post '/logout' => 'sessions#destroy'
 
   get '/post/:id/like', to: 'posts#increase_likes', as: 'increase_likes'

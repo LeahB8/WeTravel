@@ -1,7 +1,9 @@
-<h1>All Posts</h1>
+<h3>All Posts</h3>
 
 <ul>
 <% @posts.each do |post| %>
   <li><%= link_to post.title, post_path(post) %></li>
 <% end %>
 </ul>
+
+<%= link_to 'Create New Post', new_post_path %>

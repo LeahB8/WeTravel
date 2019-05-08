@@ -12,42 +12,24 @@ class DestinationsController < ApplicationController
   end
 
   def create
-
-  end
-end
-
-class PostsController < ApplicationController
-  def index
-    @posts = Post.all
-  end
-
-  def show
-    @post = Post.find(params[:id])
-  end
-
-  def new
-    @post = Post.new
-  end
-
-  def create
-    @post = Post.create(post_params)
-    redirect_to post_path(@post)
+    @destination = Post.create(destination_params)
+    redirect_to destination_path(@destination)
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @destination = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
-    @post.update(post_params)
-    @post.save
-    redirect_to post_path(@post)
+    @destination = Post.find(params[:id])
+    @destination.update(destination_params)
+    @destination.save
+    redirect_to destination_path(@destination)
   end
 
   def destroy
     Post.find(params[:id]).destroy
-    redirect_to posts_path
+    redirect_to destinations_path
   end
 
   private
