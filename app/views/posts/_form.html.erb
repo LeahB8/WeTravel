@@ -6,5 +6,12 @@
 <%= f.text_area :content %><br><br>
 <%= f.label :country %><br>
 <%= f.collection_select :destination_id, Destination.all, :id, :location %><br><br>
-<%= f.submit %>
+<%= f.label :tags %><br>
+<%= f.text_field :tags, list:"tags" %>
+  <datalist id="tags">
+    <% Tag.all.each do |tag| %>
+      <option value="<%= tag.name %>"></option>
+        <% end %>
+  </datalist>
+<br><br><%= f.submit %>
 <% end %>

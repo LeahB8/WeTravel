@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>WeTravel</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <nav class="navbar navbar-light bg-light">
+    <%= link_to(image_tag("/images/Logo1.png", :alt=>"Logo", :class=>"img-fluid rounded"), hello_path) %>
+    <%= link_to "Browse Destinations", destinations_path, class:"navbar-brand" %>
+  </nav>
+
   </head>
 
   <body>
-    <h1>WeTravel</h1>
     <%= yield %>
   </body>
 </html>

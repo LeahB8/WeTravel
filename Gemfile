@@ -71,4 +71,3 @@ gem 'city-state'
 gem 'bootstrap'
 
 gem 'jquery-rails'
-gem 'sprockets-rails'
