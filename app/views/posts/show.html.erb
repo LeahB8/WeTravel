@@ -1,4 +1,12 @@
 <h1><%= @post.title %></h1>
+
+<% if (logged_in? && (current_user.id == @post.user_id)) %>
+  <%= link_to "Edit Post", edit_post_path(@post) %>
+  <%= form_tag post_path(@post.id), method: "delete" do %>
+    <%= submit_tag "Delete Post" %>
+  <% end %>
+<% end %>
+
 <p><%= @post.content %></p>
 <br>
 
@@ -7,10 +15,13 @@
 <p>Likes: <%= @post.likes %><br>
 
 <%= link_to "Like", increase_likes_path(@post) %><br>
+<%= render partial: 'comments/form' %>
 
-<% if (logged_in? && (current_user.id == @post.user_id)) %>
-  <%= link_to "Edit Post", edit_post_path(@post) %>
-  <%= form_tag post_path(@post.id), method: "delete" do %>
-    <%= submit_tag "Delete Post" %>
+<% if @comments %>
+  <h4>Comments</h4>
+  <% @comments.each do |comment| %>
+    <ul>
+      <li><%= comment.content %></li>
+    </ul>
   <% end %>
 <% end %>
