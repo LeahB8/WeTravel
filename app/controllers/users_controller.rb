@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorized?
+  before_action :authorized?, except: [:new, :create]
 
   def index
     @users = User.all
@@ -15,17 +15,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create!(user_params)
-    # @user.save
-    # @user = User.find(username: params[:user][:username])
     redirect_to login_path
   end
 
   def edit
-
+    @user = User.find(params[:id])
   end
 
   def update
-
+    @user = User.find(params[:id])
+    @user.bio = params[:user][:bio]
+    @user.save
+    redirect_to user_path(@user)
   end
 
   def destroy
@@ -36,6 +37,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :bio, :password, :password_confirmation)
   end
 end

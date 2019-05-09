@@ -33,13 +33,14 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
 
-    if @post.update_attributes(post_params(:title, :content))
+    if @post.update_attributes(post_params)
       flash[:success] = 'Your post has been updated!'
       redirect_to post_path(@post)
     else
       render 'edit'
     end
   end
+
 
   def destroy
     Post.find(params[:id]).destroy
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :destination_id)
+    params.require(:post).permit(:title, :content, :destination_id, :tags)
   end
 
 end

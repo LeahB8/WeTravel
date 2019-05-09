@@ -1,11 +1,7 @@
 <div class="text-center">
 
-<%= form_for :user, url: '/users' do |f| %>
-  Username:<br> <%= f.text_field :username %><br>
-  Email:<br> <%= f.text_field :email %><br>
+<%= form_for @user do |f| %>
   Bio:<br> <%= f.text_area :bio %><br>
-  New Password:<br> <%= f.password_field :password %><br>
-  New Password Confirmation:<br> <%= f.password_field :password_confirmation %><br>
   <%= f.submit "Submit" %>
 <% end %>
 </div>

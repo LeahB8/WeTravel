@@ -12,7 +12,12 @@
 
 <p>Author: <%= link_to @post.user.username, @post.user %></p>
 <p>Destination: <%= link_to @post.destination.location, @post.destination %></p>
+<p>Tags: </p>
+<% @post.tags.each do |tag| %>
+  <%= tag.name %>
+  <% end %>
 <p>Likes: <%= @post.likes %><br>
+
 
 <%= link_to "Like", increase_likes_path(@post) %><br>
 <%= render partial: 'comments/form' %>

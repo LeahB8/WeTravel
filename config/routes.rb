@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :comments, except: [:index, :show]
-  resources :tags, only: [:new, :create]
+  resources :tags, only: [:show, :index]
 
 
   root 'application#hello'
@@ -17,11 +17,15 @@ Rails.application.routes.draw do
   get '/hello' => 'application#hello'
   post '/hello' => 'application#hello'
 
-
   post '/logout' => 'sessions#destroy'
   get '/logout' => 'sessions#destroy'
 
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
+
 
   get '/post/:id/like', to: 'posts#increase_likes', as: 'increase_likes'
+
+
 
 end
