@@ -1,2 +1,11 @@
 <h1><%= @user.username %></h1>
 <p><%= @user.bio %></p>
+
+
+<ul>
+  <% last_five = @user.posts.last(5) %>
+  <% last_five.each do |post| %>
+<li><%= link_to post.title, post_path(post) %></li>
+<% end %>
+</ul>
+<br>
