@@ -17,9 +17,16 @@ patrick = User.create(username: "Paddy", email: "paddy@gmail.com", password: "Go
 CS.countries.values.each {|country| Destination.create(location: country)}
 
 
-p1 = Post.create(user: leah, title: "Amazing Holiday", content: "It was an amazing holiday!", destination_id: 251 )
-p2 = Post.create(user: harriet, title: "Expensive", content: "It was expensive!", destination_id: 234 )
-p3 = Post.create(user: patrick, title: "Lovely Trip", content: "It was a lovely trip!", destination_id: 222 )
-p4 = Post.create(user: leah, title: "Sangri-gri", content: "We drank lots of Sangria!", destination_id: 212 )
-p5 = Post.create(user: harriet, title: "Cultural Hub", content: "What a great city!", destination_id: 228 )
-p6 = Post.create(user: patrick, title: "Sweet locaysh", content: "Amazing!", destination_id: 243 )
+p1 = Post.create(user: leah, title: "Amazing Holiday", content: "It was an amazing holiday!", destination_id: 1 )
+p2 = Post.create(user: harriet, title: "Expensive", content: "It was expensive!", destination_id: 2 )
+p3 = Post.create(user: patrick, title: "Lovely Trip", content: "It was a lovely trip!", destination_id: 221 )
+p4 = Post.create(user: leah, title: "Sangri-gri", content: "We drank lots of Sangria!", destination_id: 23 )
+p5 = Post.create(user: harriet, title: "Cultural Hub", content: "What a great city!", destination_id: 59 )
+p6 = Post.create(user: patrick, title: "Sweet locaysh", content: "Amazing!", destination_id: 211 )
+
+t1 = Tag.create(name: "Beach")
+t2 = Tag.create(name: "Sunset")
+t3 = Tag.create(name: "GirlsTrip")
+t4 = Tag.create(name: "Cocktails")
+t5 = Tag.create(name: "Culture")
+t6 = Tag.create(name: "Summer")

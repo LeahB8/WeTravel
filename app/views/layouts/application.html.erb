@@ -18,11 +18,9 @@
       <%= link_to "Browse Posts", posts_path, class:"navbar-brand" %>
       <%= link_to "View Profile", user_path(current_user), class:"navbar-brand" %>
       <%= link_to 'Log Out', logout_path, class:"navbar-brand" %>
-
-
     <% else %>
       <br><%= link_to 'Login', login_path, class:"navbar-brand" %><br>
-      <%= link_to 'Sign Up', new_user_path, class:"navbar-brand" %>
+      <%= link_to 'Sign Up', signup_path, class:"navbar-brand" %>
     <% end %>
 
   </nav>
@@ -38,4 +36,14 @@
 
     <%= yield %>
   </body>
+
+  <script>
+    $(document).on('ready page:load', function () {
+      $('#post_tag_ids').chosen({
+        allow_single_deselect: true,
+        width: '100%'
+      })
+    });
+  </script>
+
 </html>

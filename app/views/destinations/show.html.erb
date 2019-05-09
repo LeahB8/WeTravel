@@ -1,5 +1,6 @@
-<h1><%= @destination.location %></h1>
+<h1><%= @destination.location %></h1><br>
 
+<h5>Posts</h5>
 <ul>
   <% last_five = @destination.posts.last(5) %>
   <% last_five.each do |post| %>
