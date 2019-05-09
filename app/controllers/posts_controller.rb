@@ -7,7 +7,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comment.post_id = @post.id
-    @comments = Comment.all
+    @commenter = current_user.username
+    @comments = Comment.select { |comment| comment.post_id == @post.id}
   end
 
   def new

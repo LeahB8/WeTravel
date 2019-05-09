@@ -17,11 +17,11 @@
 <%= link_to "Like", increase_likes_path(@post) %><br>
 <%= render partial: 'comments/form' %>
 
-<% if @comments %>
+<% if @comments.length > 0 %>
   <h4>Comments</h4>
   <% @comments.each do |comment| %>
-    <ul>
-      <li><%= comment.content %></li>
-    </ul>
+    <div>
+      <p><%= @commenter %>: <%= comment.content %></p>
+    </div>
   <% end %>
 <% end %>
