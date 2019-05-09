@@ -3,7 +3,6 @@
 <div>
 <% @posts.each do |post| %>
   <p><%= link_to post.title, post_path(post) %></p>
-  <p><small><%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p><br>
 <% end %>
 </div>
 

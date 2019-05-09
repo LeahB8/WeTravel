@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :destinations, except: [:edit, :update, :destroy]
   resources :posts
   resources :comments, except: [:index, :show]
-  resources :tags, only: [:show]
+  resources :tags, only: [:show, :index]
 
   root 'application#hello'
 
@@ -23,7 +23,6 @@ Rails.application.routes.draw do
 
   get '/post/:id/like', to: 'posts#increase_likes', as: 'increase_likes'
 
-  # get 'tags/:tag', to: 'posts#index', as: :tag
 
 
 end

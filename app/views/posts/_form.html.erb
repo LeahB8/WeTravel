@@ -1,7 +1,11 @@
-<%= simple_form_for @post, url: posts_path do |f| %>
+<%= form_for @post do |f| %>
 <%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.input :title %><br><br>
-<%= f.input :content %><br><br>
-<%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true} %>
-  <br><br><%= f.button :submit %>
+<%= f.label :title %><br>
+<%= f.text_field :title %><br><br>
+<%= f.label :content %><br>
+<%= f.text_area :content %><br><br>
+<%= f.label :country %><br>
+<%= f.collection_select :destination_id, Destination.all, :id, :location %><br><br>
+
+<br><br><%= f.submit %>
 <% end %>

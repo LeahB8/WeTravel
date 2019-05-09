@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    params[:tag] ? @posts = Post.tagged_with(params[:tag]) : @posts = Post.all
+    @posts = Post.all
   end
 
   def show
@@ -38,8 +38,6 @@ class PostsController < ApplicationController
   end
 
 
-
-
   def destroy
     Post.find(params[:id]).destroy
     redirect_to posts_path
@@ -56,7 +54,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :destination_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+    params.require(:post).permit(:title, :content, :destination_id, :tags)
   end
 
 end
