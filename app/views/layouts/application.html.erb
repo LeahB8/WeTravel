@@ -25,12 +25,19 @@
 
   </nav>
 
+  <style>
+    body  {
+      background-image: url("images/wave.jpg");
+    }
+
+  </style>
+
   </head>
 
   <body>
     <% if flash[:errors]%>
       <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
+        <p class="text-danger"><%= error %></p>
       <% end %>
     <% end %>
 

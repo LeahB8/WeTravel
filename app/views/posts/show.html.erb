@@ -1,21 +1,11 @@
-<h1><%= @post.title %></h1>
+<div class="container">
+  <h1><%= @post.title %></h1>
+  <p class="lead"><%= @post.content %></p>
+</div>
 
-<% if (logged_in? && (current_user.id == @post.user_id)) %>
-  <%= link_to "Edit Post", edit_post_path(@post) %>
-  <%= form_tag post_path(@post.id), method: "delete" do %>
-    <%= submit_tag "Delete Post" %>
-  <% end %>
-<% end %>
-
-<p><%= @post.content %></p>
-<br>
 
 <p>Author: <%= link_to @post.user.username, @post.user %></p>
 <p>Destination: <%= link_to @post.destination.location, @post.destination %></p>
-<p>Tags: </p>
-<% @post.tags.each do |tag| %>
-  <%= tag.name %>
-  <% end %>
 <p>Likes: <%= @post.likes %><br>
 
 
@@ -26,7 +16,14 @@
   <h4>Comments</h4>
   <% @comments.each do |comment| %>
     <div>
-      <p><%= @commenter %>: <%= comment.content %></p>
+      <p><%= @commenter %>: <%= comment.content %></p><br>
     </div>
+  <% end %>
+<% end %>
+
+<% if (logged_in? && (current_user.id == @post.user_id)) %>
+  <%= link_to "Edit Post", edit_post_path(@post) %>
+  <%= form_tag post_path(@post.id), method: "delete" do %>
+    <%= submit_tag "Delete Post" %>
   <% end %>
 <% end %>
