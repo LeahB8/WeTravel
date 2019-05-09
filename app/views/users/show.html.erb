@@ -11,6 +11,7 @@
 </ul>
 <br>
 
+
 <% if (logged_in? && (current_user.id == @user.id)) %>
   <%= link_to "Edit Profile", edit_user_path(@user) %>
 <% end %>
