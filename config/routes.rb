@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
 
   post '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
+
 
   get '/post/:id/like', to: 'posts#increase_likes', as: 'increase_likes'
 

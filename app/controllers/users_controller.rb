@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authorized?
+
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -11,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.create!(user_params)
     # @user.save
     # @user = User.find(username: params[:user][:username])
-    redirect_to user_path(@user)
+    redirect_to login_path
   end
 
   def edit
