@@ -1,11 +1,19 @@
-<% if session[:user_id].present? %>
-  <h1>Hi, <%= User.find_by_id(session[:user_id]).username %>.</h1>
-<% end %>
 
+
+
+
+<div class="center" style="position:absolute;display:block;top:50%;left:50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%,-50%);">
+  <% if session[:user_id].present? %>
+ <h1 style="font-size:100px;color:white;text-align:center;">Hey, <%= User.find_by_id(session[:user_id]).username %></h1>
+  <% end %>
+</div>
 
 <style>
   body  {
-    background-image: url("images/home_page2.jpg");
+    background-image: url("images/sunset3.jpg");
   }
 
 </style>

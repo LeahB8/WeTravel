@@ -1,10 +1,13 @@
-<h3>All Posts</h3>
-
-<div>
-<% @posts.each do |post| %>
-  <p><%= link_to post.title, post_path(post) %></p>
-<% end %>
+<div class="container" style="display:flex;flex-direction:row;justify-content:flex-end;padding-top:100px">
+  <a href="posts/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create a Post</a>
 </div>
 
-<%= link_to 'Create New Post', new_post_path %>
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
+<div>
+
+</div>
+<div class="container">
+  <h1>All Posts</h1><br><br>
+<% @posts.each do |post| %>
+  <p class="lead"><%= link_to post.title, post_path(post) %></p>
+<% end %>
+</div>
