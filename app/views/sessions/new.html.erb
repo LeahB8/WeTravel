@@ -1,6 +1,9 @@
-<h1>Log In</h1>
+<div class="text-center" style="padding:100px;">
+
+
+<h1>Log In</h1><br>
 <%= form_for :user, url: '/login' do |f| %>
-  <br>Username: <%= f.text_field :username %><br><br>
-  Password: <%= f.password_field :password %><br><br>
+  <br>Username:<br> <%= f.text_field :username %><br><br>
+  Password:<br> <%= f.password_field :password %><br><br>
   <%= f.submit "Login" %>
 <% end %>

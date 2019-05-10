@@ -25,16 +25,10 @@
 
   </nav>
 
-  <style>
-    body  {
-      background-image: url("images/beach.jpg");
-    }
-
-  </style>
 
   </head>
 
-  <body>
+  <body style="background-color:rgb(224,232,239);">
     <% if flash[:errors]%>
       <% flash[:errors].each do |error| %>
         <p class="text-danger"><%= error %></p>

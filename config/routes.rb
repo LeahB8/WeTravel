@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
+  patch 'posts/:id', to: 'posts#update'
+
+
+
 
   get '/post/:id/like', to: 'posts#increase_likes', as: 'increase_likes'
 

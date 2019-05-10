@@ -1,22 +1,16 @@
-<div class="container">
-  <h1><%= @user.username %></h1>
-  <p class="lead"><%= @user.bio %></p>
+
+<div class="container" style="display:flex;flex-direction:row;justify-content:flex-end;padding-top:100px">
+  <% if (logged_in? && (current_user.id == @user.id)) %>
+  <a href=<%=edit_user_path%> class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Profile</a>
+  <% end %>
 </div>
 
 
-
-<ul>
-  <% last_five = @user.posts.last(5) %>
-  <% last_five.each do |post| %>
-<li><%= link_to post.title, post_path(post) %></li>
+<div class="container">
+  <h1><%= @user.username %></h1><br><br>
+  <p><%= @user.bio %></p>
+<% last_five = @user.posts.last(5) %>
+<% last_five.each do |post| %>
+<p class="lead"><%= link_to post.title, post_path(post) %></p>
 <% end %>
-</ul>
-<br>
-
-
-<% if (logged_in? && (current_user.id == @user.id)) %>
-<%= link_to "Edit Profile", edit_user_path(@user) %>
-
-  <!-- <a href="edit_user_url(@user)" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Profile</a> -->
-
-<% end %>
+</div>
