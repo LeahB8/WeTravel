@@ -29,7 +29,7 @@ p4 = Post.create(user: leah, title: "Sangri-gri", content: "We drank lots of San
 p5 = Post.create(user: harriet, title: "Cultural Hub", content: "What a great city!", destination_id: Destination.all.sample.id )
 p6 = Post.create(user: patrick, title: "Sweet locaysh", content: "Amazing!", destination_id: Destination.all.sample.id )
 
-100.times do Post.create(user: User.all.sample, title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph(50).remove(""""), destination_id: Destination.all.sample.id)
+1000.times do Post.create(user: User.all.sample, title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph(100).remove(""""), destination_id: Destination.all.sample.id)
 end
 
 t1 = Tag.create(name: "Beach")
