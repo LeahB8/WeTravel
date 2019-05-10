@@ -1,6 +1,8 @@
+<div class="container">
+  <h1><%= @user.username %></h1>
+  <p class="lead"><%= @user.bio %></p>
+</div>
 
-<h1><%= @user.username %></h1>
-<p><%= @user.bio %></p>
 
 
 <ul>
@@ -13,5 +15,8 @@
 
 
 <% if (logged_in? && (current_user.id == @user.id)) %>
-  <%= link_to "Edit Profile", edit_user_path(@user) %>
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+
+  <!-- <a href="edit_user_url(@user)" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Profile</a> -->
+
 <% end %>

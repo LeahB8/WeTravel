@@ -2,4 +2,10 @@
   <h1>Hi, <%= User.find_by_id(session[:user_id]).username %>.</h1>
 <% end %>
 
-<img src="images/home_page2.jpg" class="img-fluid rounded mx-auto d-block" alt="travel blogging">
+
+<style>
+  body  {
+    background-image: url("images/home_page2.jpg");
+  }
+
+</style>
